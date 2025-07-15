@@ -6,7 +6,7 @@
   <title>HAKCare Tech - Empowering Muslim Women in Healthcare</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/">
-<link rel="icon" type="image/png" sizes="16x16" href="assets\IMG-20250715-WA0050.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/IMG-20250715-WA0050.jpg">
   <style>
     #carousel {
       width: max-content;
@@ -29,10 +29,17 @@
 <body class="bg-white text-gray-800 font-sans">
   <header class="bg-blue-900 text-white py-6">
     <div class="container mx-auto px-6 flex justify-between items-center">
-      <img src="assets\IMG-20250715-WA0050.jpg" alt="HAKCare Tech Logo" class="w-16 h-16">
+      <img src="assets/IMG-20250715-WA0050.jpg" alt="HAKCare Tech Logo" class="w-16 h-16">
       <h1 class="text-3xl font-bold">HAKCare Tech</h1>
     </div>
   </header>
+
+  <!-- ✅ Featured Image Section -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <img src="assets/IMG-20250715-WA0001.jpg" alt="Featured HAKCare Visual" class="mx-auto rounded-lg shadow-lg w-full max-w-4xl" />
+    </div>
+  </section>
 
   <section class="py-16 bg-blue-50 text-center">
     <div class="container mx-auto px-6">
@@ -72,7 +79,7 @@
       <p class="text-lg text-gray-700 mb-6 max-w-xl mx-auto">
         Be among the first to experience HAKCare Tech when we launch. Sign up today and stay informed on our progress!
       </p>
-      <form class="max-w-md mx-auto" action="https://formspree.io/f/mzzvbdnl" method="post">
+      <form class="max-w-md mx-auto" action="https://formspree.io/f/xgegoddp" method="post">
         <input type="text" name="username" placeholder="Enter your name or username" class="w-full p-3 rounded-lg border border-gray-300 mb-4" required>
         <input type="email" name="email" placeholder="Enter your email" class="w-full p-3 rounded-lg border border-gray-300 mb-4" required>
         <button type="submit" class="w-full bg-blue-800 text-white py-3 rounded-lg hover:bg-blue-700 transition">Join Waitlist</button>
@@ -124,29 +131,25 @@
       carousel.appendChild(img);
     });
 
-    
-    
-  const form = document.querySelector("form");
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: {
-        'Accept': 'application/json'
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        alert("Thanks for joining the waitlist!");
+        form.reset();
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
       }
     });
-
-    if (response.ok) {
-      alert("Thanks for joining the waitlist!");
-      form.reset();
-    } else {
-      alert("Oops! Something went wrong. Please try again.");
-    }
-  });
-
-
   </script>
 </body>
 </html>
